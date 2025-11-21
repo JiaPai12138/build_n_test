@@ -34,11 +34,11 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pyqt5 nuitka PyQtWebEngine
+          pip install nuitka PyQtWebEngine
 
       - name: Pack
         run: |
-          python3 -m nuitka --standalone --enable-plugin=pyqt5 --nofollow-import-to=PyQt5.QtWebEngineWidgets --show-memory --show-progress --macos-create-app-bundle --assume-yes-for-download --macos-app-version=3.0.270 --macos-app-name=ChiXie --output-dir=output main.py
+          python3 -m nuitka --standalone --enable-plugin=pyqt5 --nofollow-import-to=PyQt5.QtWebEngineWidgets --include-module=PyQtWebEngine --show-memory --show-progress --macos-create-app-bundle --assume-yes-for-downloads --macos-app-version=3.0.270 --macos-app-name=ChiXie --macos-app-mode=ui-element --output-dir=output main.py
 
           ls .
           ls /Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/
