@@ -38,9 +38,13 @@ jobs:
 
       - name: Pack
         run: |
-          python3 -m nuitka --standalone --enable-plugin=pyqt5 --include-package=PyQt5.QtCore,PyQt5.QtWidgets,PyQt5.QtWebEngineWidgets --nofollow-import-to=PyQt5.QtWebEngineWidgets --show-memory --show-progress --macos-create-app-bundle --assume-yes-for-download --macos-app-version=3.0.270 --macos-app-name=ChiXie --output-dir=output main.py
+          python3 -m nuitka --standalone --enable-plugin=pyqt5 --nofollow-import-to=PyQt5.QtWebEngineWidgets --show-memory --show-progress --macos-create-app-bundle --assume-yes-for-download --macos-app-version=3.0.270 --macos-app-name=ChiXie --output-dir=output main.py
 
           ls .
+          ls /Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/
+          cp -v /Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/PyQt5/QtWebEngine.abi3.so output/main.app/Contents/MacOS/PyQt5
+          cp -v /Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/PyQt5/QtWebEngineCore.abi3.so output/main.app/Contents/MacOS/PyQt5
+          cp -v /Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/PyQt5/QtWebEngineWidgets.abi3.so output/main.app/Contents/MacOS/PyQt5
 
       - name: Saving all wheels
         uses: actions/upload-artifact@v5
