@@ -46,7 +46,7 @@ jobs:
           cp -v /Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/PyQt5/QtWebEngineCore.abi3.so output/main.app/Contents/MacOS/PyQt5
           cp -v /Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/PyQt5/QtWebEngineWidgets.abi3.so output/main.app/Contents/MacOS/PyQt5
           cd output
-          open main.app
+          open /main.app 2>&1
 
       - name: Saving all wheels
         uses: actions/upload-artifact@v5
