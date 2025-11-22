@@ -54,6 +54,9 @@ jobs:
             --follow-import-to=PyQt5.QtWebEngineWidgets,PyQt5.QtWebEngineCore,PyQt5.QtWebEngine \
             --include-qt-plugins=sensible \
             --include-data-dir=$SITE/PyQt5/Qt5=Qt5 \
+            --include-data-dir=$SITE/PyQt5/Qt5/lib/QtWebEngine.framework/Resources=MacOS \
+            --include-data-dir=$SITE/PyQt5/Qt5/lib/QtWebEngineCore.framework/Resources=MacOS \
+            --include-data-dir=$SITE/PyQt5/Qt5/lib/QtWebEngineWidgets.framework/Resources=MacOS \
             --show-memory \
             --show-progress \
             --macos-create-app-bundle \
