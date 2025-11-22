@@ -51,7 +51,6 @@ jobs:
             --enable-plugin=pyqt5 \
             --low-memory \
             --lto=no \
-            --nofollow-import-to=PyQt5.QtWebEngine \
             --follow-import-to=PyQt5.QtWebEngineWidgets,PyQt5.QtWebEngineCore,PyQt5.QtWebEngine \
             --include-qt-plugins=sensible \
             --include-data-dir=$SITE/PyQt5/Qt5=Qt5 \
@@ -66,7 +65,7 @@ jobs:
             --macos-sign-notarization \
             --output-dir=output main.py
 
-          cp -v $SITE/PyQt5/QtWebEngine*.abi3.so output/main.app/Contents/MacOS/PyQt5/
+          cp -v $SITE/PyQt5/QtWeb*.abi3.so output/main.app/Contents/MacOS/PyQt5/
 
           ls .
           ls $SITE/
