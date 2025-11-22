@@ -45,7 +45,7 @@ jobs:
             --nofollow-import-to=PyQt5.QtWebEngine \
             --follow-import-to=PyQt5.QtWebEngineWidgets,PyQt5.QtWebEngineCore,PyQt5.QtWebEngine \
             --include-qt-plugins=platforms,styles,webenginecore,webenginewidgets \
-            --include-data-dir="/Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/PyQt5/Qt"=Qt \
+            --include-data-dir=/Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/PyQt5/Qt5=Qt5 \
             --show-memory \
             --show-progress \
             --macos-create-app-bundle \
