@@ -36,6 +36,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install nuitka PyQtWebEngine
 
+      - name: Saving all resources
+        uses: actions/upload-artifact@v5
+        with:
+          name: PyQt5
+          path: |
+            /Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/PyQt5
+
       - name: Pack
         run: |
           SITE="/Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages"
@@ -43,10 +50,10 @@ jobs:
           python3 -m nuitka --standalone \
             --enable-plugin=pyqt5 \
             --low-memory \
+            --lto=no \
             --nofollow-import-to=PyQt5.QtWebEngine \
             --follow-import-to=PyQt5.QtWebEngineWidgets,PyQt5.QtWebEngineCore,PyQt5.QtWebEngine \
             --include-qt-plugins=sensible \
-            --noinclude-qt-plugins=qml \
             --include-data-dir=$SITE/PyQt5/Qt5=Qt5 \
             --show-memory \
             --show-progress \
@@ -72,4 +79,3 @@ jobs:
           name: test
           path: |
             output
-            /Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/PyQt5
