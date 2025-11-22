@@ -38,7 +38,7 @@ jobs:
 
       - name: Pack
         run: |
-          python3 -m nuitka --standalone --enable-plugin=pyqt5 --nofollow-import-to=PyQtWebEngine --show-memory --show-progress --macos-create-app-bundle --assume-yes-for-downloads --macos-app-version=3.0.270 --macos-app-name=ChiXie --macos-app-mode=ui-element --macos-sign-identity=auto --macos-sign-notarization --output-dir=output main.py
+          python3 -m nuitka --standalone --enable-plugin=pyqt5 --nofollow-import-to=PyQt5.QtWebEngine --show-memory --show-progress --macos-create-app-bundle --assume-yes-for-downloads --macos-app-version=3.0.270 --macos-app-name=ChiXie --macos-app-mode=ui-element --macos-sign-identity=auto --macos-sign-notarization --output-dir=output main.py
 
           cp -v /Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/PyQt5/QtWebEngine*.abi3.so output/main.app/Contents/MacOS/PyQt5/
 
