@@ -52,9 +52,6 @@ jobs:
             --nofollow-import-to=PyQt5.QtWebEngineWidgets \
             --include-qt-plugins=sensible \
             --include-data-dir=$SITE/PyQt5/Qt5=Qt5 \
-            --include-data-dir=$SITE/PyQt5/Qt5/lib/QtWebEngine.framework/Resources=Qt5/QtWebEngine \
-            --include-data-dir=$SITE/PyQt5/Qt5/lib/QtWebEngineCore.framework/Resources=Qt5/QtWebEngineCore \
-            --include-data-dir=$SITE/PyQt5/Qt5/lib/QtWebEngineWidgets.framework/Resources=Qt5/QtWebEngineWidgets \
             --show-memory \
             --show-progress \
             --macos-create-app-bundle \
