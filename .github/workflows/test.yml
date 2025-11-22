@@ -49,14 +49,12 @@ jobs:
 
           python3 -m nuitka --standalone \
             --enable-plugin=pyqt5 \
-            --low-memory \
-            --lto=no \
-            --follow-import-to=PyQt5.QtWebEngineWidgets,PyQt5.QtWebEngineCore,PyQt5.QtWebEngine \
+            --nofollow-import-to=PyQt5.QtWebEngineWidgets \
             --include-qt-plugins=sensible \
             --include-data-dir=$SITE/PyQt5/Qt5=Qt5 \
-            --include-data-dir=$SITE/PyQt5/Qt5/lib/QtWebEngine.framework/Resources=MacOS \
-            --include-data-dir=$SITE/PyQt5/Qt5/lib/QtWebEngineCore.framework/Resources=MacOS \
-            --include-data-dir=$SITE/PyQt5/Qt5/lib/QtWebEngineWidgets.framework/Resources=MacOS \
+            --include-data-dir=$SITE/PyQt5/Qt5/lib/QtWebEngine.framework/Resources=Qt5/QtWebEngine \
+            --include-data-dir=$SITE/PyQt5/Qt5/lib/QtWebEngineCore.framework/Resources=Qt5/QtWebEngineCore \
+            --include-data-dir=$SITE/PyQt5/Qt5/lib/QtWebEngineWidgets.framework/Resources=Qt5/QtWebEngineWidgets \
             --show-memory \
             --show-progress \
             --macos-create-app-bundle \
