@@ -62,8 +62,6 @@ jobs:
             --macos-app-version=3.0.270 \
             --macos-app-name=ChiXie \
             --macos-app-mode=ui-element \
-            --macos-sign-identity=auto \
-            --macos-sign-notarization \
             --output-dir=output main.py
 
           cp -v $SITE/PyQt5/QtWeb*.abi3.so output/main.app/Contents/MacOS/PyQt5/
