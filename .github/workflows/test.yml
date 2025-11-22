@@ -38,12 +38,16 @@ jobs:
 
       - name: Pack
         run: |
+          SITE="/Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages"
+
           python3 -m nuitka --standalone \
             --enable-plugin=pyqt5 \
+            --low-memory \
             --nofollow-import-to=PyQt5.QtWebEngine \
             --follow-import-to=PyQt5.QtWebEngineWidgets,PyQt5.QtWebEngineCore,PyQt5.QtWebEngine \
             --include-qt-plugins=sensible \
-            --include-data-dir=/Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/PyQt5/Qt5=Qt5 \
+            --noinclude-qt-plugins=qml \
+            --include-data-dir=$SITE/PyQt5/Qt5=Qt5 \
             --show-memory \
             --show-progress \
             --macos-create-app-bundle \
@@ -55,10 +59,10 @@ jobs:
             --macos-sign-notarization \
             --output-dir=output main.py
 
-          cp -v /Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/PyQt5/QtWebEngine*.abi3.so output/main.app/Contents/MacOS/PyQt5/
+          cp -v $SITE/PyQt5/QtWebEngine*.abi3.so output/main.app/Contents/MacOS/PyQt5/
 
           ls .
-          ls /Users/runner/hostedtoolcache/Python/3.11.9/arm64/lib/python3.11/site-packages/
+          ls $SITE/
           cd output
           open main.app 2>&1
 
