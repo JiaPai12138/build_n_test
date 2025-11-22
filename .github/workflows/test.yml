@@ -62,6 +62,8 @@ jobs:
             --output-dir=output main.py
 
           cp -v $SITE/PyQt5/QtWeb*.abi3.so output/main.app/Contents/MacOS/PyQt5/
+          mv output/main.app/Contents/MacOS/Qt5/lib/QtWebEngineCore/Versions/5/QtWebEngineCore output/main.app/Contents/MacOS/
+          rm -rf output/main.app/Contents/Resources
 
           ls .
           ls $SITE/
